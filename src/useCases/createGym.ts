@@ -14,7 +14,7 @@ interface CreateGymUseCaseResponse {
 }
 
 export class CreateGymUseCase {
-  constructor(private usersRepository: IGymsRepository) {}
+  constructor(private gymsRepository: IGymsRepository) {}
 
   async execute({
     description,
@@ -23,7 +23,7 @@ export class CreateGymUseCase {
     phone,
     title,
   }: CreateGymUseCaseRequest): Promise<CreateGymUseCaseResponse> {
-    const gym = await this.usersRepository.create({
+    const gym = await this.gymsRepository.create({
       description,
       latitude,
       longitude,
